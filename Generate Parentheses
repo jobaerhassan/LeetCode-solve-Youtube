@@ -1,0 +1,19 @@
+ void generate(int n, vector<string>&result , int open, int close, string s)
+    {
+            if(open == n && close == n){
+                result.push_back(s);
+                return;
+            }
+            if(open<n){
+                generate(n, result, open+1 , close, s+'(');
+            }
+            if(open>close){
+                generate(n, result, open , close+1, s+')');
+            }
+    }
+
+    vector<string> generateParenthesis(int n) {
+        vector<string>result;
+        generate(n , result, 0 ,0 , "");
+        return result;
+    }
